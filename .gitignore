@@ -1,0 +1,14 @@
+.project
+.classpath
+target/
+*.class
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.settings
+.metadata
+*.log
