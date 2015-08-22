@@ -120,7 +120,7 @@
 					<downloadSources>true</downloadSources>
 					<downloadJavadocs>true</downloadJavadocs>
 					<wtpversion>2.0</wtpversion>
-					<wtpContextName>spring-mvc-form</wtpContextName>
+					<wtpContextName>spring-invent</wtpContextName>
 				</configuration>
 			</plugin>
 
