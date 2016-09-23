@@ -18,11 +18,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -53,14 +53,14 @@ public class UserController {
 		this.userService = userService;
 	}
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@GetMapping(value = "/")
 	public String index(Model model) {
 		logger.debug("index()");
 		return "redirect:/users";
 	}
 
 	// list page
-	@RequestMapping(value = "/users", method = RequestMethod.GET)
+	@GetMapping(value = "/users")
 	public String showAllUsers(Model model) {
 
 		logger.debug("showAllUsers()");
@@ -70,7 +70,7 @@ public class UserController {
 	}
 
 	// save or update user
-	@RequestMapping(value = "/users", method = RequestMethod.POST)
+	@PostMapping(value = "/users")
 	public String saveOrUpdateUser(@ModelAttribute("userForm") @Validated User user,
 			BindingResult result, Model model, final RedirectAttributes redirectAttributes) {
 
@@ -101,7 +101,7 @@ public class UserController {
 	}
 
 	// show add user form
-	@RequestMapping(value = "/users/add", method = RequestMethod.GET)
+	@GetMapping(value = "/users/add")
 	public String showAddUserForm(Model model) {
 
 		logger.debug("showAddUserForm()");
@@ -129,7 +129,7 @@ public class UserController {
 	}
 
 	// show update form
-	@RequestMapping(value = "/users/{id}/update", method = RequestMethod.GET)
+	@GetMapping(value = "/users/{id}/update")
 	public String showUpdateUserForm(@PathVariable("id") int id, Model model) {
 
 		logger.debug("showUpdateUserForm() : {}", id);
@@ -144,7 +144,7 @@ public class UserController {
 	}
 
 	// delete user
-	@RequestMapping(value = "/users/{id}/delete", method = RequestMethod.POST)
+	@PostMapping(value = "/users/{id}/delete")
 	public String deleteUser(@PathVariable("id") int id, final RedirectAttributes redirectAttributes) {
 
 		logger.debug("deleteUser() : {}", id);
@@ -159,7 +159,7 @@ public class UserController {
 	}
 
 	// show user
-	@RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
+	@GetMapping(value = "/users/{id}")
 	public String showUser(@PathVariable("id") int id, Model model) {
 
 		logger.debug("showUser() id: {}", id);
